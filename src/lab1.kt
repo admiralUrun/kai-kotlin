@@ -22,6 +22,7 @@ fun fullSum(N: Int): Double {
         val denominator = n.toDouble().pow(n)
         val term = numerator / denominator
         sum += term
+        println(sum)
     }
     return sum
 }
