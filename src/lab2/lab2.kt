@@ -5,6 +5,8 @@ import java.io.File
 fun removeExtraSpaces(text: String): Pair<String, Int> {
     val originalSpaces = text.count { it == ' ' }
 
+    if (originalSpaces == 0) throw Error("No spaces found")
+
     val cleaned = text.trim().replace(Regex("\\s+"), " ")
 
     val newSpaces = cleaned.count { it == ' ' }
@@ -48,15 +50,13 @@ fun sortMatrixByKIndex(k: Int) {
 
         File("src/lab2/output.txt").writeText(result)
 
-        println("Результат записано у output.txt ✅")
-
     } catch (e: Exception) {
         println("Помилка: ${e.message}")
     }
 }
 
 fun main() {
-    val text = "Це     приклад   тексту   з   зайвими     пробілами."
+    val text = "vowvwv"
     val (result, removed) = removeExtraSpaces(text)
 
     println("Початковий текст: \"$text\"")
